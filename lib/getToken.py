@@ -5,6 +5,7 @@ class getTokenClass(object):
     def __init__(self):
         self.headers = {
             'Content-Type': 'application/json',
+
         }
 
     def getTokenFucntion(self, url, headers=None, data=None, json=None):
