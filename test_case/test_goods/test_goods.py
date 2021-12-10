@@ -4,6 +4,8 @@ import requests
 import json
 from lib.requestHandle import RequestHandler
 
+import allure
+
 from kw_handle.kw_login.kw_login import kw_login_getToken
 
 

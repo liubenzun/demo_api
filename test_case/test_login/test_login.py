@@ -1,11 +1,15 @@
 import json
 
+import allure
 import requests
-
 
 
 class TestLogin:
     # 登陆成功
+    @allure.feature("登陆模块刘齐")
+    @allure.story("登陆")
+    @allure.title("登陆成功")
+    @allure.description("登陆成功，是否包含token")
     def test_case1(self):
         url = "http://127.0.0.1:8000/login/"
 
@@ -26,6 +30,10 @@ class TestLogin:
         assert result["message"] == "登录成功"
         assert result["data"]["token"]
 
+    @allure.feature("登陆模块刘齐")
+    @allure.story("登陆")
+    @allure.title("登陆失败")
+    @allure.description("登陆失败，账号或密码错误")
     def test_case2(self):
         url = "http://127.0.0.1:8000/login/"
 
@@ -45,6 +53,10 @@ class TestLogin:
         assert result["code"] == 500
         assert result["message"] == "账号或密码错误"
 
+    @allure.feature("登陆模块刘齐")
+    @allure.story("登陆")
+    @allure.title("登陆失败")
+    @allure.description("登陆失败，请求参数错误/缺少")
     def test_case3(self):
         # 登陆请求踢缺少参数
         url = "http://127.0.0.1:8000/login/"
